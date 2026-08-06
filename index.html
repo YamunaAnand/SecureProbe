@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SecureProbe | Open Port Detection</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-label="SecureProbe overview">
+        <div>
+          <p class="eyebrow">Open Port Detection</p>
+          <h1>SecureProbe</h1>
+          <p class="hero-copy">Enter a website address and see which TCP ports are open.</p>
+        </div>
+        <div class="status-pill" id="scanStatus">Waiting for scan</div>
+      </section>
+
+      <section class="workspace" aria-label="Port scanner">
+        <form class="panel scan-form" id="scanForm">
+          <h2>Website scan</h2>
+
+          <label for="target">Website, host, or CIDR range</label>
+          <input id="target" name="target" type="text" value="example.com" autocomplete="url" required />
+
+          <label for="ports">Ports to check</label>
+          <input id="ports" name="ports" type="text" value="80,443" inputmode="numeric" required />
+
+          <label for="timeout">Timeout (seconds)</label>
+          <input id="timeout" name="timeout" type="number" min="0.1" max="10" step="0.1" value="0.3" required />
+
+          <label for="threads">Threads</label>
+          <input id="threads" name="threads" type="number" min="1" max="500" step="1" value="10" required />
+
+          <button type="submit" id="scanButton">Check open ports</button>
+        </form>
+
+        <section class="panel results-panel" aria-live="polite">
+          <h2>Open ports result</h2>
+
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span>Target</span>
+              <strong id="metricTarget">—</strong>
+            </article>
+            <article class="metric-card">
+              <span>Open ports</span>
+              <strong id="metricOpen">0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Checked ports</span>
+              <strong id="metricChecked">0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Duration</span>
+              <strong id="metricDuration">0.00s</strong>
+            </article>
+          </div>
+
+          <div class="summary-strip" id="summaryStrip">
+            Enter a website address and click the button to see which ports are open.
+          </div>
+
+          <div class="result-card" id="detailCard">
+            <p class="empty-state">No scan results yet. Enter a website to see the open ports that respond.</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
