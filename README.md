@@ -16,8 +16,7 @@ The project can:
 - identify open TCP ports,
 - infer likely services from standard port hints,
 - raise evidence-based security findings,
-- generate JSON and HTML reports,
-- run through a simple web interface at http://127.0.0.1:5000.
+- generate JSON and HTML reports
 
 ## Features
 
